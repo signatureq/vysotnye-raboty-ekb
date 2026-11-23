@@ -227,6 +227,9 @@ dialog::backdrop { background: rgba(8,19,34,.78); }
 }
 @media (max-width: 640px) {
   :root { --edge: 20px; --head-height: 62px; }
+  main, .mobile-nav { text-align: center; }
+  main :is(h1, h2, h3) { text-wrap: balance; }
+  main p { text-wrap: pretty; }
   .identity { gap: 8px; }
   .identity img { width: 34px; height: 34px; }
   .identity span { font-size: 16px; }
@@ -262,13 +265,18 @@ dialog::backdrop { background: rgba(8,19,34,.78); }
   .more { margin-top: 24px; }
   .terms-grid,.docs-grid,.contact-grid { grid-template-columns: 1fr; gap: 28px; }
   .terms-intro h2 br { display: none; }
-  .terms-intro h2 br::after { content:' '; }
-  .terms-intro p,.docs-grid p,.contact-section p { margin-top: 12px; font-size: 1rem; }
-  .steps li { grid-template-columns: 28px 1fr; gap: 10px; padding-block: 15px; }
+  .terms-intro p,.docs-grid p,.contact-section p { margin: 12px auto 0; font-size: 1rem; }
+  .steps li,.steps li:first-child { grid-template-columns: minmax(0,1fr); justify-items: center; gap: 6px; padding-block: 17px; }
+  .steps li::before { color: #9e411f; line-height: 1.1; }
   .steps h3 { font-size: 1.45rem; }
+  .steps p { margin-inline: auto; max-width: 42ch; }
   .docs { padding-block: 46px; }
+  .doc-list button { justify-content: center; text-align: center; }
   .contact-section { padding-block: 49px; }
-  .footer-inner { flex-wrap: wrap; gap: 9px 16px; padding-block: 16px; font-size: .78rem; }
+  .contact-details { align-items: center; }
+  .messengers { justify-content: center; }
+  .footer-inner { flex-wrap: wrap; justify-content: center; text-align: center; gap: 9px 16px; padding-block: 16px; font-size: .78rem; }
+  .footer-inner a { flex-basis: 100%; margin: 0; }
   .gallery-bottom { font-size: .88rem; }
 }
 @media (max-width: 365px) {
@@ -348,7 +356,7 @@ dialog::backdrop { background: rgba(8,19,34,.78); }
   .gallery-shell { gap: 8px; padding: max(8px,env(safe-area-inset-top)) 10px max(10px,env(safe-area-inset-bottom)); }
   .gallery-top { gap: 6px; }
   .gallery-bottom { display: grid; grid-template-columns: 1fr; gap: 4px; }
-  #gallery-caption { padding: 2px 3px; }
+  #gallery-caption { padding: 2px 3px; text-align: center; }
 }
 @media (max-height: 460px) {
   #gallery { width: 100vw; height: 100dvh; margin: 0; border-radius: 0; }

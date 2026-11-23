@@ -122,15 +122,17 @@
   .section-head > div > p { margin-top: 9px; }
   .home-albums,.portfolio-albums { grid-template-columns: 1fr; gap: 24px; }
   .home-albums .album-image,.portfolio-albums .album-image,.album:first-child .album-image { aspect-ratio: 1.56; }
-  .home-albums .album-label,.portfolio-albums .album-label { display: flex; }
+  .album { text-align: center; }
+  .home-albums .album-label,.portfolio-albums .album-label { display: flex; flex-wrap: wrap; justify-content: center; }
   .home-albums .album-label strong,.portfolio-albums .album-label strong { font-size: 1.45rem; }
-  .crumbs { font-size: .82rem; gap: 5px; }
+  .crumbs { justify-content: center; font-size: .82rem; gap: 5px; }
   .page-head { padding-block: 19px 31px; }
   .page-head h1,.direction-intro h1 { font-size: clamp(2.18rem,8.3vw,3.05rem); overflow-wrap: anywhere; }
   .page-head p,.direction-intro p { font-size: 1rem; }
   .direction-hero { padding-block: 16px 21px; }
   .direction-intro { margin-top: 17px; }
   .direction-intro figure img { height: clamp(210px,55vw,315px); }
+  .direction-intro figcaption { inset-inline: 0; bottom: 0; }
   .purpose-grid { grid-template-columns: 1fr; gap: 19px; margin-top: 20px; }
   .purpose-grid article { padding-top: 12px; }
   .purpose-grid p { margin-top: 6px; }
@@ -138,20 +140,22 @@
   .photo-series button,.photo-series.paired button { aspect-ratio: 1.5; }
   .photo-series figcaption { margin-top: 5px; }
   .inside .terms-grid h2 br,.inside .docs-grid h2 br,.contacts-page h2 br { display: none; }
-  .related .wrap { align-items: flex-start; flex-direction: column; gap: 11px; }
+  .questions summary { padding-inline: 34px; }
+  .related .wrap { align-items: center; flex-direction: column; gap: 11px; }
+  .related h3 { margin-right: 0; }
   .story-heading { display: block; }
   .story-heading .text-action { margin-top: 9px; }
   .resource-photo { height: 240px; }
-  .doc-library article { grid-template-columns: 30px minmax(0,1fr); gap: 14px; padding: 20px 0; }
+  .doc-library article { grid-template-columns: minmax(0,1fr); justify-items: center; gap: 10px; padding: 20px 0; }
   .doc-index { width: 30px; height: 38px; }
   .doc-index .icon { width: 20px; }
-  .doc-library article .button { grid-column: 2; justify-self: start; min-height: 41px; }
-}
-
-@media (max-width: 640px) {
+  .doc-library article .button { min-height: 44px; }
+  .channels-page .channel-links > * { justify-content: center; padding-inline: 12px; text-align: center; }
+  main :is(.section-head, .direction-copy, .page-head, .direction-intro, .intake, .purpose-grid, .questions, .story-heading, .resource-layout, .doc-library) p,
+  .photo-series figcaption { margin-inline: auto; max-width: 48ch; }
   .feature-heading { display: block; margin-bottom: 16px; }
   .feature-heading .text-action { margin-top: 8px; }
   .repair-pair img { aspect-ratio: 1.08; }
-  .repair-pair figcaption { display: grid; gap: 3px; font-size: .95rem; }
+  .repair-pair figcaption { display: grid; justify-items: center; gap: 3px; font-size: .95rem; }
   .repair-pair figcaption span { font-size: .85rem; line-height: 1.35; }
 }
