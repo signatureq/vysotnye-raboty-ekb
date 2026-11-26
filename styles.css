@@ -324,7 +324,13 @@ dialog::backdrop { background: rgba(8,19,34,.78); }
   }
   .mobile-panorama > div { position: absolute; inset: 0; background-size: cover; opacity: 0; transition: opacity .75s ease-in-out; }
   .mobile-panorama > .is-current { z-index: 1; opacity: 1; }
-  [data-mobile-photo="25"] { background-image: url(assets/photos/25.webp); background-position: 50% 72%; }
+  .mobile-panorama > [data-mobile-photo="97"] {
+    top: auto;
+    height: 38%;
+    background-image: url(assets/photos/97.webp);
+    background-position: 48% center;
+    mask-image: linear-gradient(to bottom, transparent, #000 9%);
+  }
   [data-mobile-photo="26"] { background-image: url(assets/photos/26.webp); background-position: 25% 52%; }
   [data-mobile-photo="91"] { background-image: url(assets/photos/91.webp); background-position: 53% 50%; }
   [data-mobile-photo="96"] { background-image: url(assets/photos/hero-96.webp); background-position: 56% 50%; }
