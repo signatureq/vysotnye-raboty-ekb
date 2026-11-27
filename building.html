@@ -53,7 +53,7 @@
   <section class="wrap section terms-grid"><div><h2>Состав работ<br> и приёмка</h2></div><ol class="steps"><li><div><h3>Проходим объект с представителем УК</h3><p>Фиксируем задачи по помещениям и подъездам. Отмечаем, где нужны ремонт, демонтаж или новая кладка.</p></div></li><li><div><h3>Согласуем смету и порядок работ</h3><p>Уточняем материалы, доступ и очередность выхода бригады. Отдельно оговариваем место хранения и погрузки мусора.</p></div></li><li><div><h3>Сдаём участки по перечню</h3><p>Вместе сверяем результат по каждой позиции. Принимающая сторона видит, к какому помещению или входу относится работа.</p></div></li></ol></section>
   <section class="intake"><div class="wrap intake-grid"><div><h2>Что прислать<br> на расчёт</h2><button class="button primary" data-contact="files"><svg class="icon" aria-hidden="true"><use href="#i-clip"/></svg>Отправить материалы</button></div><ul class="ruled-list"><li>Адрес и перечень подъездов, этажей или помещений, где нужны работы.</li><li>Фото каждого участка и существующая дефектная ведомость, если она есть.</li><li>Ориентировочные размеры, ограничения по проходу жильцов, доступу и времени шумных работ.</li></ul></div></section>
   <section class="wrap section docs-grid"><h2>Вопросы<br> по работам</h2><div class="questions"><details><summary>Можно объединить разные задачи в одну заявку?<span class="expand" aria-hidden="true"></span></summary><p>Да. Укажите для каждой задачи место и ожидаемый результат. В смете можно сохранить отдельные строки по подъездам, чтобы потом было удобно принимать работу.</p></details><details><summary>Нужны ли точные размеры перегородки до обращения?<span class="expand" aria-hidden="true"></span></summary><p>Для первого обсуждения достаточно фото помещения и примерных размеров. Размеры стены и проёма уточним на объекте перед расчётом материалов.</p></details></div></section>
-  <aside class="related"><div class="wrap"><h3>Другие направления</h3><a href="capital-repair.html">Капремонт МКД</a><a href="drainage.html">Отмостки и водоотвод</a><a href="maintenance.html">Текущие заявки УК</a><a href="services.html">Все услуги</a></div></aside><section id="contacts" class="contact-section"><div class="wrap contact-grid"><div><h2>Обсудим<br>ваш объект<span>?</span></h2><p>Павел, руководитель. Можно сразу прислать фотографии, адрес дома или ведомость работ.</p></div><div class="contact-details"><a class="big-phone" href="tel:+79519923593">+7 951 992-35-93</a><a class="email" href="mailto:vkorsukovav@mail.ru">vkorsukovav@mail.ru</a><div class="messengers"><button data-contact="max">MAX</button><a href="https://t.me/+79519923593" target="_blank" rel="noopener">Telegram</a><a href="https://wa.me/79519923593" target="_blank" rel="noopener">WhatsApp</a></div><button class="button primary" data-contact="discussion">Подготовить обращение</button></div></div></section></main>
+  <aside class="related"><div class="wrap"><h3>Другие направления</h3><a href="capital-repair.html">Капремонт МКД</a><a href="drainage.html">Отмостки и водоотвод</a><a href="maintenance.html">Текущие заявки УК</a><a href="services.html">Все услуги</a></div></aside><section id="contacts" class="contact-section"><div class="wrap contact-grid"><div><h2>Обсудим<br>ваш объект<span>?</span></h2><p>Павел, руководитель. Можно сразу прислать фотографии, адрес дома или ведомость работ.</p></div><div class="contact-details"><a class="big-phone" href="tel:+79519923593">+7 951 992-35-93</a><a class="email" href="mailto:vkorsukovav@mail.ru">vkorsukovav@mail.ru</a><div class="messengers"><button data-contact="max">MAX</button><a href="https://t.me/+79519923593" target="_blank" rel="noopener">Telegram</a><a href="https://wa.me/79519923593" target="_blank" rel="noopener">WhatsApp</a></div><button class="button primary" data-contact="discussion">Оставить заявку</button></div></div></section></main>
   <footer><div class="wrap footer-inner"><span>Высотные работы</span><span>Екатеринбург</span><a href="#main">К началу страницы</a></div></footer>
   <a class="button primary floating-call" href="tel:+79519923593">
     <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Позвонить</span>
@@ -66,5 +66,30 @@
     </div>
   </dialog>
   <dialog id="contact-dialog" aria-labelledby="dialog-title"><div class="dialog-body"><button class="dialog-close icon-button" data-close aria-label="Закрыть окно"><svg class="icon"><use href="#i-cross"/></svg></button><h2 id="dialog-title"></h2><div id="dialog-content"></div></div></dialog>
+  <template id="request-form-template">
+    <form class="contact-form" method="post" action="https://formsubmit.co/vkorsukovav@mail.ru" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="Новая заявка с nadezhnytyl.ru">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://nadezhnytyl.ru/thanks.html">
+      <input type="hidden" name="_url" value="https://nadezhnytyl.ru/contacts.html">
+      <input type="hidden" name="Тема" value="Заявка на работы">
+      <label hidden>Оставьте это поле пустым<input type="text" name="_honey" autocomplete="off" tabindex="-1"></label>
+      <div class="contact-fields">
+        <label><span>Ваше имя</span><input type="text" name="Имя" autocomplete="name" placeholder="Как к вам обращаться" maxlength="100" required></label>
+        <label><span>Телефон</span><input type="tel" name="Телефон" autocomplete="tel" placeholder="+7 900 000-00-00" maxlength="25" required></label>
+      </div>
+      <label><span>Что нужно сделать?</span><textarea name="Задача" rows="3" maxlength="2200" placeholder="Например, очистить водостоки у второго подъезда" required></textarea></label>
+      <details class="request-extras">
+        <summary>Добавить организацию и адрес</summary>
+        <div class="contact-fields">
+          <label><span>УК, ТСЖ или компания</span><input type="text" name="Организация" autocomplete="organization" maxlength="160"></label>
+          <label><span>Адрес объекта</span><input type="text" name="Адрес" placeholder="Улица и номер дома" maxlength="200"></label>
+        </div>
+      </details>
+      <label><span>Фото или дефектная ведомость <small>по желанию</small></span><input type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.pdf,.doc,.docx,.xls,.xlsx"><small>Один файл до 10 МБ</small></label>
+      <button class="button primary" type="submit">Отправить заявку</button>
+      <small>Данные заявки передаются руководителю через <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a>.</small>
+    </form>
+  </template>
 </body>
 </html>

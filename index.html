@@ -57,7 +57,7 @@
         </div>
         <div class="hero-aside">
           <p>Своя бригада для УК, ТСЖ и ЖСК. Закупаем материалы за свой счёт, оплату принимаем по завершении этапа.</p>
-          <div class="hero-actions"><button class="button primary" data-contact="discussion"><svg class="icon"><use href="#i-talk"/></svg>Обсудить объект</button><button class="secondary-link" data-contact="files"><svg class="icon"><use href="#i-clip"/></svg>Отправить ведомость или фото</button></div>
+          <div class="hero-actions"><button class="button primary" data-contact="discussion"><svg class="icon"><use href="#i-talk"/></svg>Оставить заявку</button><button class="secondary-link" data-contact="files"><svg class="icon"><use href="#i-clip"/></svg>Отправить ведомость или фото</button></div>
         </div>
       </div>
       <div class="panorama" id="hero-photos" role="group" aria-label="Фотографии с объектов">
@@ -118,9 +118,13 @@
       <div class="terms-grid"><div class="terms-intro"><h2>Как работаем<br> с управляющими<br> компаниями</h2><p>Старт финансируем сами. Смету и график приёмки согласуем под бюджет и задачи конкретного дома.</p><a class="button dark" href="cooperation.html">Условия сотрудничества</a></div>
         <ol class="steps"><li><div><h3>Осматриваем объект</h3><p>Разбираем заявку и дефектную ведомость, фиксируем состояние конструкций.</p></div></li><li><div><h3>Согласуем смету</h3><p>Определяем материалы, объёмы и этапы. Закрепляем условия и гарантию в договоре.</p></div></li><li><div><h3>Выводим свою бригаду</h3><p>Закупаем материалы за свой счёт. Фотографируем скрытые работы до нанесения финишного покрытия.</p></div></li><li><div><h3>Сдаём работы по этапам</h3><p>Предоставляем фотоотчёт и закрывающие документы КС-2 и КС-3. Оплата — после приёмки.</p></div></li></ol></div>
     </section>
+    <section id="specialist" class="intake"><div class="wrap intake-grid">
+  <h2>Обучим специалиста под вашу задачу</h2>
+  <div><p>Если для задачи вашей УК сложно найти исполнителя, расскажите, что нужно делать и как часто. Подготовим специалиста к нужным работам и возьмём задачу на себя.</p><button class="button primary" data-topic="Подготовка специалиста под задачу">Рассказать о задаче</button></div>
+</div></section>
     <section id="documents" class="docs"><div class="wrap docs-grid"><div><h2>Документы</h2><p>Что запросить для согласования сметы, допуска бригады и приёмки работ.</p><a class="text-action" href="documents.html">Посмотреть перечень</a></div><div class="doc-list">
   <button data-topic="Допуски и сведения о СРО"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span>Допуски и сведения о СРО</span><small>Запросить</small></button><button data-topic="Карточка предприятия и договор"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span>Карточка предприятия и договор</span><small>Запросить</small></button><button data-topic="Смета и закрывающие документы"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span>Смета и закрывающие документы</span><small>Запросить</small></button><button data-topic="Рекомендации управляющих компаний"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span>Рекомендации управляющих компаний</span><small>Запросить</small></button></div></div></section>
-    <section id="contacts" class="contact-section"><div class="wrap contact-grid"><div><h2>Обсудим<br>ваш объект<span>?</span></h2><p>Павел, руководитель. Можно сразу прислать фотографии, адрес дома или ведомость работ.</p></div><div class="contact-details"><a class="big-phone" href="tel:+79519923593">+7 951 992-35-93</a><a class="email" href="mailto:vkorsukovav@mail.ru">vkorsukovav@mail.ru</a><div class="messengers"><button data-contact="max">MAX</button><a href="https://t.me/+79519923593" target="_blank" rel="noopener">Telegram</a><a href="https://wa.me/79519923593" target="_blank" rel="noopener">WhatsApp</a></div><button class="button primary" data-contact="discussion">Подготовить обращение</button></div></div></section>
+    <section id="contacts" class="contact-section"><div class="wrap contact-grid"><div><h2>Обсудим<br>ваш объект<span>?</span></h2><p>Павел, руководитель. Можно сразу прислать фотографии, адрес дома или ведомость работ.</p></div><div class="contact-details"><a class="big-phone" href="tel:+79519923593">+7 951 992-35-93</a><a class="email" href="mailto:vkorsukovav@mail.ru">vkorsukovav@mail.ru</a><div class="messengers"><button data-contact="max">MAX</button><a href="https://t.me/+79519923593" target="_blank" rel="noopener">Telegram</a><a href="https://wa.me/79519923593" target="_blank" rel="noopener">WhatsApp</a></div><button class="button primary" data-contact="discussion">Оставить заявку</button></div></div></section>
   </main>
   <footer><div class="wrap footer-inner"><span>Высотные работы</span><span>Екатеринбург</span><a href="#main">К началу страницы</a></div></footer>
   <a class="button primary floating-call" href="tel:+79519923593">
@@ -134,5 +138,30 @@
     </div>
   </dialog>
   <dialog id="contact-dialog" aria-labelledby="dialog-title"><div class="dialog-body"><button class="dialog-close icon-button" data-close aria-label="Закрыть окно"><svg class="icon"><use href="#i-cross"/></svg></button><h2 id="dialog-title"></h2><div id="dialog-content"></div></div></dialog>
+  <template id="request-form-template">
+    <form class="contact-form" method="post" action="https://formsubmit.co/vkorsukovav@mail.ru" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="Новая заявка с nadezhnytyl.ru">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://nadezhnytyl.ru/thanks.html">
+      <input type="hidden" name="_url" value="https://nadezhnytyl.ru/contacts.html">
+      <input type="hidden" name="Тема" value="Заявка на работы">
+      <label hidden>Оставьте это поле пустым<input type="text" name="_honey" autocomplete="off" tabindex="-1"></label>
+      <div class="contact-fields">
+        <label><span>Ваше имя</span><input type="text" name="Имя" autocomplete="name" placeholder="Как к вам обращаться" maxlength="100" required></label>
+        <label><span>Телефон</span><input type="tel" name="Телефон" autocomplete="tel" placeholder="+7 900 000-00-00" maxlength="25" required></label>
+      </div>
+      <label><span>Что нужно сделать?</span><textarea name="Задача" rows="3" maxlength="2200" placeholder="Например, очистить водостоки у второго подъезда" required></textarea></label>
+      <details class="request-extras">
+        <summary>Добавить организацию и адрес</summary>
+        <div class="contact-fields">
+          <label><span>УК, ТСЖ или компания</span><input type="text" name="Организация" autocomplete="organization" maxlength="160"></label>
+          <label><span>Адрес объекта</span><input type="text" name="Адрес" placeholder="Улица и номер дома" maxlength="200"></label>
+        </div>
+      </details>
+      <label><span>Фото или дефектная ведомость <small>по желанию</small></span><input type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.pdf,.doc,.docx,.xls,.xlsx"><small>Один файл до 10 МБ</small></label>
+      <button class="button primary" type="submit">Отправить заявку</button>
+      <small>Данные заявки передаются руководителю через <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a>.</small>
+    </form>
+  </template>
 </body>
 </html>

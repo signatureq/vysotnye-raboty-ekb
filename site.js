@@ -6,8 +6,7 @@ const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#i-${nam
 const channels = {
   phone: 'tel:+79519923593',
   telegram: 'https://t.me/+79519923593',
-  whatsapp: 'https://wa.me/79519923593',
-  email: 'mailto:vkorsukovav@mail.ru'
+  whatsapp: 'https://wa.me/79519923593'
 };
 const photoDirectory = 'assets/photos/';
 
@@ -231,9 +230,6 @@ for (const container of all('[data-photo-group]')) {
 const contact = one('#contact-dialog');
 const dialogTitle = one('#dialog-title');
 const content = one('#dialog-content');
-function emailDraft(subject, body) {
-  return `${channels.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
 function channelLink(url, name, symbol, external = false) {
   return `<a href="${url}"${external ? ' target="_blank" rel="noopener"' : ''}>${icon(symbol)}${name}</a>`;
 }
@@ -265,40 +261,40 @@ function maxDetails() {
     }
   });
 }
-function fileChannels() {
-  const email = emailDraft('Фотографии или ведомость на расчёт', 'Павел, добрый день! Направляю материалы по объекту.');
-  present('Материалы на расчёт', `<p>Выберите канал и приложите фотографии или дефектную ведомость к сообщению. Укажите адрес дома и что нужно сделать.</p>
-    <div class="channel-links">
-    ${channelLink(channels.telegram,'Написать в Telegram','telegram',true)}
-    ${channelLink(channels.whatsapp,'Написать в WhatsApp','chat',true)}
-    <button data-contact="max">${icon('max')}Связаться в MAX</button>
-    ${channelLink(email,'Подготовить письмо','mail')}</div>`);
+const requestTemplate = one('#request-form-template');
+function discussion(topic = '', withFile = false) {
+  const title = withFile ? 'Отправить материалы' : (topic || 'Оставить заявку');
+  const hint = withFile
+    ? 'Коротко опишите, что нужно рассчитать, и приложите фото или ведомость.'
+    : 'Опишите задачу и оставьте телефон для связи.';
+  present(title, `<p>${hint}</p><div class="dialog-direct"><a href="${channels.phone}">Позвонить</a><button data-contact="max">MAX</button><a href="${channels.telegram}" target="_blank" rel="noopener">Telegram</a><a href="${channels.whatsapp}" target="_blank" rel="noopener">WhatsApp</a></div>`);
+  const request = requestTemplate.content.cloneNode(true);
+  const form = one('form', request);
+  if (withFile || topic) form.elements.namedItem('Тема').value = withFile ? 'Фото или ведомость на расчёт' : topic;
+  content.insertBefore(request, one('.dialog-direct', content));
 }
-function discussion(topic = '') {
-  present(topic ? 'Запрос руководителю' : 'Обсудить объект', `<p>Подготовьте письмо Павлу или выберите удобный канал связи.</p>
-    <form class="contact-form">
-      <label>Имя или организация<input name="sender" autocomplete="organization" maxlength="160" placeholder="Как к вам обратиться"></label>
-      <label>Телефон или Telegram<input name="reply" maxlength="160" placeholder="Для обратной связи"></label>
-      <label>Что нужно сделать<textarea name="description" rows="3" maxlength="1600" placeholder="Адрес и несколько слов о задаче"></textarea></label>
-      <button class="button dark" type="submit">${icon('mail')}Подготовить письмо</button>
-      <small>Письмо откроется в вашей почтовой программе. Там можно добавить вложения и отправить его.</small>
-    </form>
-    <div class="dialog-direct"><a href="${channels.phone}">Позвонить</a><button data-contact="max">MAX</button><a href="${channels.telegram}" target="_blank" rel="noopener">Telegram</a><a href="${channels.whatsapp}" target="_blank" rel="noopener">WhatsApp</a></div>`);
-  const form = one('form', content);
-  if (topic) form.elements.description.value = topic;
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const sender = form.elements.sender.value.trim();
-    const reply = form.elements.reply.value.trim();
-    const description = form.elements.description.value.trim();
-    const body = ['Павел, добрый день!', description, sender, reply].filter(Boolean).join('\n\n');
-    window.location.href = emailDraft(topic || 'Обсуждение работ по объекту', body);
-  });
-}
+document.addEventListener('input', (event) => {
+  if (event.target.matches('.contact-form :is(input, textarea)')) event.target.setCustomValidity('');
+});
+document.addEventListener('submit', (event) => {
+  const form = event.target;
+  if (!form.matches('.contact-form')) return;
+  const name = form.elements.namedItem('Имя');
+  const phone = form.elements.namedItem('Телефон');
+  const task = form.elements.namedItem('Задача');
+  const attachment = form.elements.attachment;
+  if (!name.value.trim()) name.setCustomValidity('Укажите ваше имя.');
+  if (!/^\+?[\d\s().-]+$/.test(phone.value.trim()) || !/^\d{10,15}$/.test(phone.value.replace(/\D/g, ''))) {
+    phone.setCustomValidity('Укажите телефон с кодом города или оператора.');
+  }
+  if (!task.value.trim()) task.setCustomValidity('Коротко опишите задачу.');
+  if (attachment.files[0]?.size > 10_000_000) attachment.setCustomValidity('Выберите файл до 10 МБ.');
+  if (!form.reportValidity()) event.preventDefault();
+});
 document.addEventListener('click', (event) => {
   const button = event.target.closest('[data-contact],[data-topic]');
   if (!button) return;
   if (button.dataset.contact === 'max') maxDetails();
-  else if (button.dataset.contact === 'files') fileChannels();
+  else if (button.dataset.contact === 'files') discussion('', true);
   else discussion(button.dataset.topic);
 });

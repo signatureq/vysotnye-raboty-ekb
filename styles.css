@@ -173,11 +173,18 @@ dialog::backdrop { background: rgba(8,19,34,.78); }
 .channel-links { display: grid; gap: 9px; }
 .channel-links > * { display: flex; gap: 12px; align-items: center; padding: 12px 14px; background: var(--tint); border-radius: 4px; font-weight: 500; text-align: left; min-height: 45px; }
 .channel-links > :hover { background: #d6e1ea; }
-.contact-form { display: grid; gap: 13px; margin-top: 19px; }
+.contact-form { display: grid; min-width: 0; gap: 13px; margin-top: 19px; text-align: left; }
+.contact-fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
 .contact-form label { display: grid; gap: 5px; font-size: .88rem; font-weight: 500; }
-.contact-form input,.contact-form textarea { width: 100%; background: white; border: 1px solid #acb8c5; border-radius: 3px; padding: 10px; font-size: 1rem; color: var(--ink); }
+.contact-form input,.contact-form textarea { width: 100%; min-width: 0; background: white; border: 1px solid #acb8c5; border-radius: 3px; padding: 10px; font-size: 1rem; color: var(--ink); }
 .contact-form textarea { resize: vertical; }
-.contact-form small { color: var(--muted); font-size: .83rem; line-height: 1.4; }
+.contact-form small { color: var(--muted); font-size: .83rem; line-height: 1.4; font-weight: 400; }
+.contact-form label span small { white-space: nowrap; }
+.contact-form small a { text-decoration: underline; text-underline-offset: 2px; }
+.request-extras summary { cursor: pointer; padding: 7px 0; font-size: .88rem; font-weight: 500; }
+.request-extras .contact-fields { margin-top: 4px; }
+.contact-form input[type="file"] { font-size: .9rem; }
+.contact-form input[type="file"]::file-selector-button { color: var(--ink); background: var(--tint); border: 0; border-radius: 3px; padding: 6px 9px; margin-right: 8px; cursor: pointer; }
 .dialog-direct { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 18px; }
 .dialog-direct > * { padding: 4px 0; font-size: .91rem; text-decoration: underline; text-underline-offset: 3px; }
 .max-number { font: 500 2rem var(--display); margin-block: 13px; user-select: all; }
@@ -231,6 +238,7 @@ dialog::backdrop { background: rgba(8,19,34,.78); }
   main, .mobile-nav { text-align: center; }
   main :is(h1, h2, h3) { text-wrap: balance; }
   main p { text-wrap: pretty; }
+  .contact-fields { grid-template-columns: minmax(0,1fr); }
   .identity { gap: 8px; }
   .identity img { width: 34px; height: 34px; }
   .identity span { font-size: 16px; }

@@ -74,6 +74,8 @@
 .intake-grid { display: grid; grid-template-columns: minmax(0,.92fr) minmax(0,1fr); gap: 9%; align-items: start; }
 .intake .button { margin-top: 22px; }
 .intake p { margin: 0; max-width: 58ch; }
+.request-intro { margin-top: 15px; max-width: 43ch; color: var(--muted); line-height: 1.55; }
+#request .contact-form { margin-top: 0; }
 .ruled-list { list-style: none; margin: 0; padding: 0; }
 .ruled-list li { padding: 14px 0; border-block-start: 1px solid #708399; line-height: 1.5; }
 .questions details { border-top: 1px solid var(--line); }
@@ -120,6 +122,7 @@
   .direction-intro h1 { font-size: clamp(2.3rem,5.6vw,3rem); }
 }
 @media (max-width: 640px) {
+  .request-intro { margin-inline: auto; }
   .service-index { grid-template-columns: minmax(0,1fr); margin-bottom: 28px; }
   .service-index a + a { border-inline-start: 0; border-top: 1px solid var(--line); }
   .service-index a { padding: 15px 8px; }
