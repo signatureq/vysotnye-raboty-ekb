@@ -245,7 +245,7 @@ function present(title, markup) {
   contact.scrollTop = 0;
 }
 function maxDetails() {
-  present('Связь в MAX', `<p>Добавьте номер Вадима в контакты телефона и откройте его в MAX.</p>
+  present('Связь в MAX', `<p>Добавьте номер Павла в контакты телефона и откройте его в MAX.</p>
     <div class="max-number">+7 951 992-35-93</div>
     <div class="channel-links"><button id="copy-number">${icon('copy')}Скопировать номер</button>
     ${channelLink('https://web.max.ru/', 'Открыть MAX', 'max', true)}</div>
@@ -266,7 +266,7 @@ function maxDetails() {
   });
 }
 function fileChannels() {
-  const email = emailDraft('Фотографии или ведомость на расчёт', 'Вадим, добрый день! Направляю материалы по объекту.');
+  const email = emailDraft('Фотографии или ведомость на расчёт', 'Павел, добрый день! Направляю материалы по объекту.');
   present('Материалы на расчёт', `<p>Выберите канал и приложите фотографии или дефектную ведомость к сообщению. Укажите адрес дома и что нужно сделать.</p>
     <div class="channel-links">
     ${channelLink(channels.telegram,'Написать в Telegram','telegram',true)}
@@ -275,7 +275,7 @@ function fileChannels() {
     ${channelLink(email,'Подготовить письмо','mail')}</div>`);
 }
 function discussion(topic = '') {
-  present(topic ? 'Запрос руководителю' : 'Обсудить объект', `<p>Подготовьте письмо Вадиму или выберите удобный канал связи.</p>
+  present(topic ? 'Запрос руководителю' : 'Обсудить объект', `<p>Подготовьте письмо Павлу или выберите удобный канал связи.</p>
     <form class="contact-form">
       <label>Имя или организация<input name="sender" autocomplete="organization" maxlength="160" placeholder="Как к вам обратиться"></label>
       <label>Телефон или Telegram<input name="reply" maxlength="160" placeholder="Для обратной связи"></label>
@@ -291,7 +291,7 @@ function discussion(topic = '') {
     const sender = form.elements.sender.value.trim();
     const reply = form.elements.reply.value.trim();
     const description = form.elements.description.value.trim();
-    const body = ['Вадим, добрый день!', description, sender, reply].filter(Boolean).join('\n\n');
+    const body = ['Павел, добрый день!', description, sender, reply].filter(Boolean).join('\n\n');
     window.location.href = emailDraft(topic || 'Обсуждение работ по объекту', body);
   });
 }
